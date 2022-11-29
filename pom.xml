@@ -77,6 +77,35 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>prod</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudHubDeployment>
+								<applicationName>product-details-prod-api</applicationName>
+								<environment>Prod</environment>
+								<region>us-east-1</region>
+								<workers>1</workers>
+								<workerType>MICRO</workerType>
+								<properties>
+									<http.port>8081</http.port>
+									<api.id>18334876</api.id>
+									<env>prod</env>
+									<anypoint.platform.client_id>b6c321733e6e4f90ac60cb64398534bc</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>fA606Dc829F04f7591F969a455cFe4A7</anypoint.platform.client_secret>
+								</properties>
+							</cloudHubDeployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 
 
