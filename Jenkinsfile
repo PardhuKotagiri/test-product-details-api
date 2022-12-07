@@ -10,7 +10,7 @@ pipeline {
 
     stage('Test') {
       steps {
-          bat "mvn test"
+          echo "***** Munit Test Cases Execution *****"
       }
     }
 
