@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="implementation-test-suite.xml" />
+	<munit:test name="implementation-test-suite-implementationSub_FlowTest" doc:id="ccf02a5b-a3c4-40fd-8295-2f22d05cda98" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to implementationSub_Flow" doc:id="524a0c28-eeec-431b-a230-15dc36d2fd99" name="implementationSub_Flow"/>
+		</munit:execution>
+		<munit:validation >
+			<logger level="INFO" doc:name="Info Logger" doc:id="23d109c6-7635-4a20-a70f-ae29fdcf7e16" message="#[payload]"/>
+			<munit-tools:assert doc:name="Assert expression" doc:id="8705a4e1-0f57-44d2-bea8-a3f886df4999" />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

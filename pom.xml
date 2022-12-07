@@ -13,10 +13,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.reporting.outputEncoding>UTF-8
+		</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20220824</app.runtime>
 		<mule.maven.plugin.version>3.6.3</mule.maven.plugin.version>
+		<munit.version>2.3.11</munit.version>
 	</properties>
 	<profiles>
 		<profile>
@@ -95,7 +97,8 @@
 								<workerType>MICRO</workerType>
 								<properties>
 									<http.port>8081</http.port>
-									<api.id>18334876</api.id>
+									<api.id>18334876
+									</api.id>
 									<env>prod</env>
 									<anypoint.platform.client_id>b6c321733e6e4f90ac60cb64398534bc</anypoint.platform.client_id>
 									<anypoint.platform.client_secret>fA606Dc829F04f7591F969a455cFe4A7</anypoint.platform.client_secret>
@@ -107,8 +110,6 @@
 			</build>
 		</profile>
 	</profiles>
-
-
 	<build>
 		<plugins>
 			<plugin>
@@ -130,10 +131,33 @@
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
 							<http.port>8081</http.port>
-							<anypoint.platform.base_uri>https://anypoint.mulesoft.com </anypoint.platform.base_uri>
-							<anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com </anypoint.platform.analytics_base_uri>
+							<anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
+							<anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
 						</properties>
 					</cloudHubDeployment>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mulesoft.munit.tools</groupId>
+				<artifactId>munit-maven-plugin</artifactId>
+				<version>${munit.version}</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+							<goal>coverage-report</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<coverage>
+						<runCoverage>true</runCoverage>
+						<formats>
+							<format>html</format>
+						</formats>
+					</coverage>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -157,6 +181,26 @@
 			<artifactId>mule-apikit-module</artifactId>
 			<version>1.6.1</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>2.3.11</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-tools</artifactId>
+			<version>2.3.11</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.weave</groupId>
+			<artifactId>assertions</artifactId>
+			<version>1.0.2</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
