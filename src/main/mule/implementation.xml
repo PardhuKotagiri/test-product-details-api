@@ -5,6 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<sub-flow name="implementationSub_Flow" doc:id="250e7758-2c47-4bde-8b91-c270f2816ad0" >
+		<logger level="INFO" doc:name="Start Logger" doc:id="704daf20-d58f-4cd1-a7b0-05844582ab1a" message="Payload1" />
 		<ee:transform doc:name="Transform Message" doc:id="08a32d1b-aee0-4173-911b-897045884ee6" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -18,6 +19,6 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="704daf20-d58f-4cd1-a7b0-05844582ab1a" message="Your application has completed"/>
+		<logger level="INFO" doc:name="End Logger" doc:id="39201a39-ec86-48ac-9f0d-3a584159c9e8" message="Payload2"/>
 	</sub-flow>
 </mule>
