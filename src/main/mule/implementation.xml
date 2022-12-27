@@ -19,6 +19,13 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="End Logger" doc:id="39201a39-ec86-48ac-9f0d-3a584159c9e8" message="Payload2"/>
+		<ee:transform doc:name="Transform Message" doc:id="899388b9-a660-41e9-acfb-d51b3ac340cf" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</sub-flow>
 </mule>
