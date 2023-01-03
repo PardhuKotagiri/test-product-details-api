@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 output application/json
 ---
 {
-  productId: "1234",
+  productId: "123456",
   productName: "Mule Course",
   productProvider: "Udemy",
   productDesc: "Mule developer"
