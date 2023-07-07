@@ -18,7 +18,7 @@
                 <ee:transform>
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
-output application/json
+output application/xml
 ---
 readUrl('classpath://dwl/errordesc.dwl','application/json')]]></ee:set-payload>
                     </ee:message>
